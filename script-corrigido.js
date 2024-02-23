@@ -139,24 +139,24 @@ function gerarCalendario() {
     // dataFeriado = new Date(domingoPascoa.getTime() + 60 * 24 * 60 * 60 * 1000); 
     // corpus = dateToStrDayMonth(dataFeriado);
 
-    const feriados = [
-      '01/01', // Ano Novo
-      '01/05', // Dia do Trabalho
-      '25/07', // Dia Estadual da Consciencia Negra
-      '07/09', // Independência do Brasil
-      '12/10', // Dia de Nossa Senhora Aparecida
-      '15/10', // Dia da proclamação da república
-      '02/11', // Finados
-      '25/12',  // Natal
-      carnaval,
-      pascoa, 
-      sextaSanta,
-      corpus
-    ];
-  
-   const dataFormatada = dateToStrDayMonth(data);
+    const feriadosMoveis = retornaFeriadosMoveis(data.getFullYear());
+const feriados = [
+  '01/01', // Ano Novo
+  '01/05', // Dia do Trabalho
+  '25/07', // Dia Estadual da Consciencia Negra
+  '07/09', // Independência do Brasil
+  '12/10', // Dia de Nossa Senhora Aparecida
+  '15/10', // Dia da proclamação da república
+  '02/11', // Finados
+  '25/12', // Natal
+  // Agora, adicione os feriados móveis retornados pela função retornaFeriadosMoveis
+  ...feriadosMoveis
+];
 
-    return feriados.includes(dataFormatada);
+const dataFormatada = dateToStrDayMonth(data);
+
+return feriados.includes(dataFormatada);
+
   }  
 
   function dateToStrDayMonth ( data ){
@@ -170,7 +170,9 @@ function gerarCalendario() {
 
     /*----- calcula feriados moveis */
     let X, Y, a, b, c, d, g, diaDaPascoa, mesDaPascoa, diaDoMesDaPascoa;
-    ano = data.getFullYear();
+
+    //este comando nao é mais necessario pois quando chamar esta função, como o ano esta sendo passado como parametro, ja sera pego automaticamente
+    //ano = data.getFullYear();
     if (ano <= 1699) {
         X = 22;
         Y = 2;
@@ -240,4 +242,7 @@ function gerarCalendario() {
     //Corpus Christi
     dataFeriado = new Date(domingoPascoa.getTime() + 60 * 24 * 60 * 60 * 1000); 
     corpus = dateToStrDayMonth(dataFeriado);
+
+    // calcula todos estes feriados, e os retorna atraves de um array ()
+    return [carnaval, pascoa, sextaSanta, corpus];
   }
