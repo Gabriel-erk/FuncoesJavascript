@@ -21,9 +21,12 @@ function gerarCalendario() {
     "Setembro",
     "Outubro",
     "Novembro",
-    "Dezembro",
+    "Dezembro"
   ];
   const hoje = new Date();
+
+  // fazendo com que, o programa nao tenha que passar por todos os dias do ano para encaixar os feriados, aqui ele so passa uma vez e ja os determina 
+  const listaDeFeriados = retornaFeriados(ano);
 
   for (let indiceMes = 0; indiceMes < meses.length; indiceMes++) {
     const nomeMes = meses[indiceMes];
@@ -70,7 +73,7 @@ function gerarCalendario() {
           if (
             diasHorizontal === 0 ||
             dataAtual.getDay() === 0 ||
-            eFeriado(dataAtual) === true
+            eFeriado(dataAtual, listaDeFeriados) === true
           ) {
             celula.style.backgroundColor = "red";
             celula.style.color = "white";
@@ -87,16 +90,7 @@ function gerarCalendario() {
   }
 }
 
-function eFeriado(data) {
-  // const feriadosMoveis = retornaFeriadosMoveis(data.getFullYear());
-  // const feriadosFixos = retornaFeriadosFixos();
-
-  // const feriados = [
-  //   // os tres pontos servem para colocar um vetor dentro de outro vetor, os veriados fixos estao localizados em um vetor
-  //   ...feriadosFixos,
-  //   ...feriadosMoveis
-  // ];
-  const listaDeFeriados = retornaFeriados(data.getFullYear());
+function eFeriado(data, listaDeFeriados) {
 
   const dataFormatada = dateToStrDayMonth(data);
 
@@ -116,8 +110,6 @@ function retornaFeriadosMoveis(ano) {
   /*----- calcula feriados moveis */
   let X, Y, a, b, c, d, g, diaDaPascoa, mesDaPascoa, diaDoMesDaPascoa;
 
-  //este comando nao é mais necessario pois quando chamar esta função, como o ano esta sendo passado como parametro, ja sera pego automaticamente
-  //ano = data.getFullYear();
   if (ano <= 1699) {
     X = 22;
     Y = 2;
