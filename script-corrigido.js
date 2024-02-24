@@ -88,30 +88,19 @@ function gerarCalendario() {
 }
 
 function eFeriado(data) {
-  const feriadosMoveis = retornaFeriadosMoveis(data.getFullYear());
-  const feriadosFixos = retornaFeriadosFixos();
+  // const feriadosMoveis = retornaFeriadosMoveis(data.getFullYear());
+  // const feriadosFixos = retornaFeriadosFixos();
 
-  const feriados = [
-    // os tres pontos servem para colocar um vetor dentro de outro vetor, os veriados fixos estao localizados em um vetor
-    ...feriadosFixos,
-    ...feriadosMoveis
-  ];
   // const feriados = [
-  //   "01/01", // Ano Novo
-  //   "01/05", // Dia do Trabalho
-  //   "25/07", // Dia Estadual da Consciencia Negra
-  //   "07/09", // Independência do Brasil
-  //   "12/10", // Dia de Nossa Senhora Aparecida
-  //   "15/10", // Dia da proclamação da república
-  //   "02/11", // Finados
-  //   "25/12", // Natal
-  //   // Agora, adicione os feriados móveis retornados pela função retornaFeriadosMoveis
-  //   ...feriadosMoveis,
+  //   // os tres pontos servem para colocar um vetor dentro de outro vetor, os veriados fixos estao localizados em um vetor
+  //   ...feriadosFixos,
+  //   ...feriadosMoveis
   // ];
+  const listaDeFeriados = retornaFeriados(data.getFullYear());
 
   const dataFormatada = dateToStrDayMonth(data);
 
-  return feriados.includes(dataFormatada);
+  return listaDeFeriados.includes(dataFormatada);
 }
 
 function dateToStrDayMonth(data) {
@@ -120,6 +109,7 @@ function dateToStrDayMonth(data) {
   return `${dia}/${mes}`;
 }
 
+//este comando nao é mais necessario pois quando chamar esta função, como o ano esta sendo passado como parametro, ja sera pego automaticamente
 function retornaFeriadosMoveis(ano) {
   let carnaval, pascoa, sextaSanta, corpus;
 
@@ -218,4 +208,17 @@ function retornaFeriadosFixos() {
   ];
 
   return feriadosFixos;
+}
+
+function retornaFeriados(ano) {
+  const feriadosMoveis = retornaFeriadosMoveis(ano);
+  const feriadosFixos = retornaFeriadosFixos(ano);
+
+  const listaDeFeriados = [
+    // os tres pontos servem para colocar um vetor dentro de outro vetor, os veriados fixos estao localizados em um vetor
+    ...feriadosFixos,
+    ...feriadosMoveis,
+  ];
+
+  return listaDeFeriados;
 }
