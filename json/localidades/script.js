@@ -16,13 +16,12 @@ document.addEventListener("DOMContentLoaded", async function(){
         //cria um novo elemento de lista ('<li>') no documento html
         const li = document.createElement('li');
 
-        //conteudo da li, no caso, apenas os NOMES dentro do bloco de codigo: municipios -li.textContent = municipio.nome;: Define o texto do elemento de lista (<li>) como o nome do município atual.
-        li.textContent = municipio.nome;
+        /*conteudo da li, no caso, apenas os NOMES dentro do bloco de codigo: municipios - li.textContent = municipio.nome;: Define o texto do elemento de lista (<li>) como o nome do município atual - a mesma coisa se repete com o codigo apos a /, esta mostrando a silga do municipio ao lado do municipio - e `${}` esta sendo utilizado para realizar concatenaçao de strings, mostrando apenas o retorno  */
+        li.textContent = `${municipio.nome}/${municipio.microrregiao.mesorregiao.UF.sigla}` ;
 
         /* adicionando as li, como filhos da ul (adicionando dentro de ul) - listaMunicipios.appendChild(li);: Adiciona o elemento de lista (<li>) como filho do elemento de lista (<ul>) com o id listaMunicipios.*/
         listaMunicipios.appendChild(li);
     });
 }
-
 
 )
