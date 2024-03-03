@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", async function(){
         
         principal.appendChild(ids);
 
-        const observacao = document.createElement('li');
-        observacao.textContent = `${cnae.observacoes}`;
+        // const observacao = document.createElement('li');
+        // observacao.textContent = `${cnae.observacoes}`;
 
-        listaObservacao.appendChild(observacao);
+        // listaObservacao.appendChild(observacao);
 
         // const dadosArray = dados.cnae.observacoes;
 
@@ -24,5 +24,12 @@ document.addEventListener("DOMContentLoaded", async function(){
         // li.textContent = `${cnae.observacoes}`
     });
 
+    // const dadosObs = dados.observacoes;
+
+    // dadosObs.forEach(function(observacao) {
+    //     const obs = document.createElement('li');
+    //     obs.textContent = observacao;
+    //     listaObservacao.appendChild(obs);
+    // });
     
 })
