@@ -8,11 +8,20 @@ h1 {
     text-align: center;
 }
 
+h3{
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+.cnae{
+    text-align: center;
+}
+
 ul {
     list-style-type: none;
-    font-style: italic;
+    font-style: bold;
 }
 
 li {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
