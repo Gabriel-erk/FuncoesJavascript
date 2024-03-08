@@ -53,6 +53,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         ulSubtitulo.appendChild(olResultados);
     });
 
-    conteudo.appendChild(divBlocoInflacao);
+    container.appendChild(divBlocoInflacao);
   });
 });
