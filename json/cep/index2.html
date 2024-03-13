@@ -9,26 +9,20 @@
 
 <body>
     <form>
-        <h1>Consulta CEP</h1>
-        <p><strong> Não sabe o CEP? Informe seu endereço!</strong></p>
+        <h1>Consulta Endereço</h1>
+        <p><strong> Não sabe o CEP? Informe o endereço.</strong></p>
         <fieldset>
 
-            <label for="endereco">
-                Endereço:
-                <input type="text" name="endereco" id="endereco" value="">
+            <label for="logradouro">
+                Logradouro:
+                <input type="text" name="logradouro" id="logradouro" value="">
+                <button onclick="buscarEndereco()">Buscar</button>
             </label>
 
             <p>
                 <label for="cep">
                     CEP:
                     <input type="text" name="cep" id="cep" value="" size="10" maxlength="9">
-                </label>
-            </p>
-
-            <p>
-                <label for="logradouro">
-                    Logradouro:
-                    <input type="text" name="logradouro" id="logradouro" value="">
                 </label>
             </p>
 
@@ -70,7 +64,7 @@
         </fieldset>
 
     </form>
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
 </body>
 
 </html>
