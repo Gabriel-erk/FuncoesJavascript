@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Consulta de CEP</title>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div id="conteudo">
+
+            <div class="titulo">
+                <h1>Consulta CEP</h1>
+                <p><strong>Preencha os campos em branco com suas informações residenciais</strong></p>
+            </div>
+
+
+            <div class="solicita-cep">
+                <p>
+                    <label for="cep">
+                        CEP:
+                        <input type="text" name="cep" id="cep" value="">
+                    </label>
+                </p>
+
+                <button onclick="buscarCep()">Buscar</button>
+
+            </div>
+
+            <p>
+                <a href="index2.html">Não sabe o CEP?</a>
+            </p>
+
+            <!-- <div class="endereco-usuario">
+
+            </div> -->
+        </div>
+
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+
+</html>
