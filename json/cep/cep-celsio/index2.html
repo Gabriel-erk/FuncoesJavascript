@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Consulta de CEP</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div>
+            <h1>Consulta CEP por Endereço</h1>
+            <p><strong>Preencha os campos em branco com suas informações necessárias</strong></p>
+
+            <div id="valida-endereco">
+
+                <div class="uf-cidade-log">
+                    <p>
+
+                        <label for="estado">Estado:</label>
+                        <select name="estado" id="estado">
+
+                            <option value="">Selecione o estado</option>
+
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+
+                    </p>
+
+                    <p>
+
+                        <label for="cidade">
+                            Cidade:
+                            <input type="text" name="cidade" id="cidade" value="">
+                        </label>
+
+                    </p>
+
+                    <p>
+                        <label for="logradouro">
+                            Logradouro:
+                            <input type="text" name="logradouro" id="logradouro" value="">
+                        </label>
+
+                    </p>
+
+                    <button onclick="buscarCep()">Buscar</button>
+                </div>
+
+                <p>
+                    <a href="index.html">Não sabe o CEP?</a>
+                </p>
+
+                <div id="endereco-usuario">
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .uf-cidade-log {
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Adiciona uma sombra com deslocamento de 0 na horizontal, 2px na vertical, 4px de desfoque e cor rgba(0, 0, 0, 0.1) */
+        }
+    </style>
+
+    <script>
+        async function buscarCep() {
+
+            event.preventDefault();
+
+            const estado = document.getElementById('estado').value;
+            const cidade = document.getElementById('cidade').value;
+            const logradouro = document.getElementById('logradouro').value;
+
+
+            const resposta = await fetch(`https://viacep.com.br/ws/${estado}/${cidade}/${logradouro}/json/`)
+
+            const dados = await resposta.json();
+
+            const enderecoUsuario = document.getElementById('endereco-usuario');
+
+            dados.forEach(function (info) {
+
+                const logradouroUsuario = document.createElement('p');
+                logradouroUsuario.textContent = `CEP: ${info.cep}`;
+
+                const complementoUsuario = document.createElement('p');
+                complementoUsuario.textContent = `Complemento: ${info.complemento}`
+
+                const bairroUsuario = document.createElement('p');
+                bairroUsuario.textContent = `Bairro: ${info.bairro}`
+
+                const localidadeUsuario = document.createElement('p');
+                localidadeUsuario.textContent = `Localidade: ${info.localidade}`
+
+                const ufUsuario = document.createElement('p');
+                ufUsuario.textContent = `Bairro: ${info.uf}`
+
+                const dddUsuario = document.createElement('p');
+                dddUsuario.textContent = `DDD: ${info.ddd}`
+
+                const divisaoDeLinha = document.createElement('hr');
+
+                enderecoUsuario.appendChild(logradouroUsuario);
+                enderecoUsuario.appendChild(complementoUsuario);
+                enderecoUsuario.appendChild(bairroUsuario);
+                enderecoUsuario.appendChild(localidadeUsuario);
+                enderecoUsuario.appendChild(ufUsuario);
+                enderecoUsuario.appendChild(divisaoDeLinha);
+            });
+        }
+    </script>
+</body>
+
+</html>

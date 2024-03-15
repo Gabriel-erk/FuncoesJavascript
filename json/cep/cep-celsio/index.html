@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Consulta de CEP</title>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div id="conteudo">
+
+            <div class="titulo">
+                <h1>Consulta CEP</h1>
+                <p><strong>Preencha os campos em branco com suas informações residenciais</strong></p>
+            </div>
+
+
+            <div class="solicita-cep">
+                <p>
+                    <label for="cep">
+                        CEP:
+                        <input type="text" name="cep" id="cep" value="">
+                    </label>
+                </p>
+
+                <button onclick="buscarCep()">Buscar</button>
+
+            </div>
+
+            <p>
+                <a href="index2.html">Não sabe o CEP?</a>
+            </p>
+
+            <!-- <div class="endereco-usuario">
+
+            </div> -->
+        </div>
+
+    </div>
+
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .solicita-cep {
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+    <script>
+        async function buscarCep() {
+
+            event.preventDefault();
+
+            const cep = document.getElementById('cep').value;
+
+            const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+
+            const dados = await resposta.json();
+
+            const divConteudo = document.getElementById('conteudo');
+
+            const divEnderecoUsuario = document.createElement('div');
+            divEnderecoUsuario.id = "endereco-usuario";
+
+            divConteudo.appendChild(divEnderecoUsuario);
+
+            const logradouro = document.createElement('p');
+            logradouro.textContent = `Logradouro: ${dados.logradouro}`;
+
+            const complemento = document.createElement('p');
+            // if(dados.complemento = ""){
+            //   dados.complemento = "nenuhum complemento"
+            // }
+            complemento.textContent = `Complemento: ${dados.complemento}`;
+
+            const bairro = document.createElement('p');
+            bairro.textContent = `Bairro: ${dados.bairro}`;
+
+            const localidade = document.createElement('p');
+            localidade.textContent = `Localidade: ${dados.localidade}`;
+
+            const uf = document.createElement('p');
+            uf.textContent = `UF: ${dados.uf}`;
+
+            const ddd = document.createElement('p');
+            ddd.textContent = `DDD: ${dados.ddd}`;
+
+            const separaCeps = document.createElement('hr');
+
+            divConteudo.appendChild(logradouro);
+            divConteudo.appendChild(complemento);
+            divConteudo.appendChild(bairro);
+            divConteudo.appendChild(uf);
+            divConteudo.appendChild(ddd);
+            divConteudo.appendChild(separaCeps);
+
+        }
+    </script>
+</body>
+
+</html>
