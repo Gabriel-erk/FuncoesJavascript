@@ -1,33 +1,48 @@
 async function buscarCep() {
-  /* função que evita que o javascript recarregue a pagina ao clicar no botao, isto acontce por causa do formulario */
+
   event.preventDefault();
-  // Obtém o valor do CEP do campo de entrada
+
   const cep = document.getElementById('cep').value;
 
-  // Faz uma solicitação para a API ViaCEP usando o CEP fornecido
-  fetch(`https://viacep.com.br/ws/${cep}/json/`)
-    // Converte a resposta da solicitação para JSON
-    .then(response => response.json())
-    // Manipula os dados retornados pela API ViaCEP
-    .then(data => {
-      // Verifica se não há erro na resposta
-      if (!data.erro) {
-        // Preenche os campos do formulário com os dados do endereço
-        document.getElementById('logradouro').value = data.logradouro;
-        document.getElementById('complemento').value = data.complemento;
-        
-        if(data.complemento == ''){
-          document.getElementById('complemento').value = "nenhum";
-        }
-        document.getElementById('bairro').value = data.bairro;
-        document.getElementById('localidade').value = data.localidade;
-        document.getElementById('UF').value = data.uf;
-        document.getElementById('DDD').value = data.ddd;
-      } else {
-        // Se houver erro, exibe uma mensagem de alerta informando que o CEP não foi encontrado
-        alert('CEP não encontrado');
-      }
-    })
-    // Captura e trata quaisquer erros que possam ocorrer durante a solicitação
-    .catch(error => console.error('Erro ao buscar endereço:', error));
+  const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+
+  const dados = await resposta.json();
+
+  const divConteudo = document.getElementById('conteudo');
+
+  const divEnderecoUsuario = document.createElement('div');
+  divEnderecoUsuario.id = "endereco-usuario";
+
+  divConteudo.appendChild(divEnderecoUsuario);
+
+  const logradouro = document.createElement('p');
+  logradouro.textContent = `Logradouro: ${dados.logradouro}`;
+
+  const complemento = document.createElement('p');
+  // if(dados.complemento = ""){
+  //   dados.complemento = "nenuhum complemento"
+  // }
+  complemento.textContent = `Complemento: ${dados.complemento}`;
+  
+  const bairro = document.createElement('p');
+  bairro.textContent = `Bairro: ${dados.bairro}`;
+
+  const localidade = document.createElement('p');
+  localidade.textContent = `Localidade: ${dados.localidade}`;
+
+  const uf = document.createElement('p');
+  uf.textContent = `UF: ${dados.uf}`;
+
+  const ddd = document.createElement('p');
+  ddd.textContent = `DDD: ${dados.ddd}`;
+  
+  const separaCeps = document.createElement('hr');
+
+  divConteudo.appendChild(logradouro);
+  divConteudo.appendChild(complemento);
+  divConteudo.appendChild(bairro);
+  divConteudo.appendChild(uf);
+  divConteudo.appendChild(ddd);
+  divConteudo.appendChild(separaCeps);
+
 }

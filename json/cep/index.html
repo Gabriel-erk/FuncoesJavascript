@@ -14,68 +14,37 @@
 
 <body>
     <div class="container">
-        <form>
-            <h1>Consulta CEP</h1>
-            <p><strong>Preencha os campos em branco com suas informações residenciais</strong></p>
-            <fieldset>
 
+
+        <div id="conteudo">
+
+            <div class="titulo">
+                <h1>Consulta CEP</h1>
+                <p><strong>Preencha os campos em branco com suas informações residenciais</strong></p>
+            </div>
+
+
+            <div class="solicita-cep">
                 <p>
                     <label for="cep">
                         CEP:
                         <input type="text" name="cep" id="cep" value="">
                     </label>
-                    <button onclick="buscarCep()">Buscar</button>
                 </p>
 
-                <p>
-                    <label for="logradouro">
-                        Logradouro:
-                        <input type="text" name="logradouro" id="logradouro" value="">
-                    </label>
-                </p>
+                <button onclick="buscarCep()">Buscar</button>
 
-                <p>
-                    <label for="complemento">
-                        Complemento:
-                        <input type="text" name="complemento" id="complemento" value="">
-                    </label>
-                </p>
+            </div>
 
-                <p>
-                    <label for="bairro">
-                        Bairro:
-                        <input type="text" name="bairro" id="bairro" value="">
-                    </label>
-                </p>
+            <p>
+                <a href="index2.html">Não sabe o CEP?</a>
+            </p>
 
-                <p>
-                    <label for="localidade">
-                        Localidade:
-                        <input type="text" name="localidade" id="localidade" value="">
-                    </label>
-                </p>
+            <!-- <div class="endereco-usuario">
 
-                <p>
-                    <label for="UF">
-                        UF:
-                        <input type="text" name="UF" id="UF" value="">
-                    </label>
-                </p>
+            </div> -->
+        </div>
 
-                <p>
-                    <label for="DDD">
-                        DDD:
-                        <input type="text" name="DDD" id="DDD" value="">
-                    </label>
-                </p>
-
-                <p>
-                    <a href="index2.html">Não sabe o CEP?</a>
-                </p>
-
-            </fieldset>
-
-        </form>
     </div>
 
     <script src="script.js"></script>
