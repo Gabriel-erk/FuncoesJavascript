@@ -1,8 +1,10 @@
 async function buscarEndereco() {
   /* função que evita que o javascript recarregue a pagina ao clicar no botao, isto acontce por causa do formulario */
   event.preventDefault();
+  const estado = document.getElementById('estado').value;
+  const cidade = document.getElementById('cidade').value;
   const logradouro = document.getElementById('logradouro').value;
-  fetch(`https://viacep.com.br/ws/${logradouro}/json/`)
+  fetch(`https://viacep.com.br/ws/${estado}/${cidade}/${logradouro}/json/`)
    
   .then(response => response.json())
   .then(data => {

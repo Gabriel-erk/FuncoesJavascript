@@ -5,10 +5,7 @@ body{
 .container{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 
-form{
-    text-align: center;
-    width: 30%;
-}

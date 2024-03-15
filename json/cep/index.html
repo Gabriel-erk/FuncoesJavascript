@@ -4,72 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <title>Consulta de CEP</title>
 </head>
 
 <body>
-    <form>
-        <h1>Consulta CEP</h1>
-        <p><strong>Preencha os campos em branco com suas informações residenciais</strong></p>
-        <fieldset>
+    <div class="container">
+        <form>
+            <h1>Consulta CEP</h1>
+            <p><strong>Preencha os campos em branco com suas informações residenciais</strong></p>
+            <fieldset>
 
-            <p>
-                <label for="cep">
-                    CEP:
-                    <input type="text" name="cep" id="cep" value="">
-                </label>
-                <button onclick="buscarCep()">Buscar</button>
-            </p>
+                <p>
+                    <label for="cep">
+                        CEP:
+                        <input type="text" name="cep" id="cep" value="">
+                    </label>
+                    <button onclick="buscarCep()">Buscar</button>
+                </p>
 
-            <p>
-                <label for="logradouro">
-                    Logradouro:
-                    <input type="text" name="logradouro" id="logradouro" value="">
-                </label>
-            </p>
+                <p>
+                    <label for="logradouro">
+                        Logradouro:
+                        <input type="text" name="logradouro" id="logradouro" value="">
+                    </label>
+                </p>
 
-            <p>
-                <label for="complemento">
-                    Complemento:
-                    <input type="text" name="complemento" id="complemento" value="">
-                </label>
-            </p>
+                <p>
+                    <label for="complemento">
+                        Complemento:
+                        <input type="text" name="complemento" id="complemento" value="">
+                    </label>
+                </p>
 
-            <p>
-                <label for="bairro">
-                    Bairro:
-                    <input type="text" name="bairro" id="bairro" value="">
-                </label>
-            </p>
+                <p>
+                    <label for="bairro">
+                        Bairro:
+                        <input type="text" name="bairro" id="bairro" value="">
+                    </label>
+                </p>
 
-            <p>
-                <label for="localidade">
-                    Localidade:
-                    <input type="text" name="localidade" id="localidade" value="">
-                </label>
-            </p>
+                <p>
+                    <label for="localidade">
+                        Localidade:
+                        <input type="text" name="localidade" id="localidade" value="">
+                    </label>
+                </p>
 
-            <p>
-                <label for="UF">
-                    UF:
-                    <input type="text" name="UF" id="UF" value="">
-                </label>
-            </p>
+                <p>
+                    <label for="UF">
+                        UF:
+                        <input type="text" name="UF" id="UF" value="">
+                    </label>
+                </p>
 
-            <p>
-                <label for="DDD">
-                    DDD:
-                    <input type="text" name="DDD" id="DDD" value="">
-                </label>
-            </p>
+                <p>
+                    <label for="DDD">
+                        DDD:
+                        <input type="text" name="DDD" id="DDD" value="">
+                    </label>
+                </p>
 
-            <p>
-                <a href="index2.html">Não sabe o CEP?</a>
-            </p>
+                <p>
+                    <a href="index2.html">Não sabe o CEP?</a>
+                </p>
 
-        </fieldset>
+            </fieldset>
 
-    </form>
+        </form>
+    </div>
+
     <script src="script.js"></script>
 </body>
 
