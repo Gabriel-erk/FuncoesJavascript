@@ -8,13 +8,29 @@ body{
     align-items: center;
 }
 
-
 .uf-cidade-log{
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 10px;
     padding-bottom: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra com deslocamento de 0 na horizontal, 2px na vertical, 4px de desfoque e cor rgba(0, 0, 0, 0.1) */
+}
+
+.botao {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background-color: blue;
+    color: #fff;
+
+    border-radius: 5px 10px;
+    border: none;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px; 
+}
+
+.botao:hover {
+    background-color: darkblue;
 }
 
 

@@ -1,13 +1,13 @@
-body{
+body {
     font-family: 'Poppins', sans-serif;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: center;
 }
 
-.solicita-cep{
+.solicita-cep {
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -15,9 +15,9 @@ body{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* .botao {
+.botao {
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     background-color: blue;
     color: #fff;
 
@@ -25,9 +25,9 @@ body{
     border: none;
     cursor: pointer;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 10px; 
 }
 
-.botao:hover{
+.botao:hover {
     background-color: darkblue;
-} */
+}

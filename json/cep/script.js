@@ -2,13 +2,15 @@
 let inputCep = document.getElementById("cep");
 
 /* com o  DOM adicionado, o evento so sera chamado apos a pagina carregar por completo, evitando problemas onde ele esteja sendo chamado/sendo executado antes do elemento-alvo sequer existir(como estava ocorrendo aqui) */
+
 document.addEventListener("DOMContentLoaded", function () {
+
+  /* aqui esta sendo adicionado um evento do tipo input (toda vez que o campo for alterado, ele dispara este evento), ou seja, sempre que mudar qualquer caracter, este evento sera chamado, entao, ao alterar/adicionar caracteres, sera criada uma constante que recebe o valor atual que esta no input, formata ele, utilizando a função "formataCep(aqui o valor atual do cep)", e devolve pro campo input o valor do cep formatado, e isso acontece multiplas vezes, aplicando a formatação por isso ocorre este processo automatico de formatar enquanto ainda digito  */ 
   inputCep.addEventListener("input", function (cepFormatado) {
       const valorCep = inputCep.value;
 
       cepFormatado = formataCep(valorCep);
 
-      
       inputCep.value = cepFormatado;
     }
   );
